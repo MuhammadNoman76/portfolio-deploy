@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url(Assets/background3.jpg) no-repeat;
+    background-color: rgb(0, 60, 116);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    background-color: rgba(0, 56, 140, 0.2);
+    top: 0;
+    left: 0;
+    height: 15%;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(30px);
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    padding-top: 5px;
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+    background-image: url('Assets/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-weight: bold;
+}
+
+.navbar a {
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+    height: 100%;
+}
+
+.navbar a:hover {
+    background-color: rgba(0, 36, 79, 0.2);
+    color: yellow;
+    border-bottom: 2px solid yellow;
+    height: 100%;
+}
+
+.navbar a.activebar {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: yellow;
+    border-bottom: 2px solid yellow;
+    height: 100%;
+}
+
+.search-container {
+    margin-left: 0rem;
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.search-icon {
+    margin-right: 1rem;
+    color: white;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin-bottom: 5px;
+    background-color: white;
+    transition: transform 0.5s ease;
+}
+
+main {
+    padding-top: 15%;
+    color: #fff;
+}
+
+.header-section {
+    text-align: center;
+    padding: 3rem;
+}
+
+.header-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.header-section p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: left;
+    background-color: rgba(0, 54, 134, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border: none;
+    border-radius: 30px;
+}
+
+
+.about {
+    text-align: center;
+    padding: 1.3rem;
+}
+
+.about h2 {
+    padding-top: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1;
+    background-color: rgba(0, 54, 134, 0.3);
+    backdrop-filter: blur(10px);
+    text-align: left;
+    padding: 1rem;
+    border: none;
+    border-radius: 30px;
+}
+
+section {
+    min-height: 100vh;
+    padding: 4rem;
+    margin: 0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+section p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #ddd;
+    border: none;
+    border-radius: 30px;
+}
+
+#projects {
+    padding: 1.3rem;
+    text-align: center;
+}
+
+#projects h1 {
+    padding-top: 70px;
+    padding-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#projects p {
+    padding: 0;
+}
+
+.project-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 850px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.project-card {
+    background-color: rgba(0, 54, 134, 0.5);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 43, 107, 0.1);
+    backdrop-filter: blur(30px);
+    width: calc(30% - 20px);
+    min-width: 240px;
+    max-width: 300px;
+    text-align: left;
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.project-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+
+.project-card .cards {
+    font-size: 1rem;
+    line-height: 1.4;/
+}
+
+#services {
+    padding: 1.3rem;
+    text-align: center;
+
+}
+
+#services h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-top: 70px;
+}
+
+.table-container {
+    padding: 10px 0;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: rgba(0, 21, 58, 0.4);
+    border: none;
+    border-radius: 100px;
+}
+
+th {
+    background-color: rgba(0, 28, 97, 0.8);
+    backdrop-filter: blur(40px);
+}
+
+th:nth-child(1) {
+
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+    /* Vertical border between columns */
+}
+
+th:nth-child(2) {
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    font-weight: bold;
+    border-top-right-radius: 30px;
+
+}
+
+
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(10px);
+    text-align: left;
+
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(0, 36, 79, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: left;
+}
+
+td:nth-child(1) {
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+td {
+    padding: 6.8px;
+
+
+}
+
+#contact {
+    padding: 1.3rem;
+    text-align: center;
+
+}
+
+#contact h2 {
+    padding-top: 70px;
+}
+
+/* Style for the contact section */
+#contact {
+    padding: 50px 0;
+    text-align: center;
+}
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 54, 134, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.labels_style {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Style for form input fields */
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style for form buttons */
+.button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #fffb00;
+    color: black;
+    font-weight: bold;
+}
+
+
+footer div{
+    /* padding-bottom: 0.5rem; */
+    padding: auto;
+    text-align: center;
+    background-color: rgba(0, 54, 134, 0.7);
+
+}
+
+
+
+@media (max-width: 768px) {
+    .navbar {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: rgba(0, 56, 140, 0.9);
+        backdrop-filter: blur(10px);
+        overflow: hidden;
+        transition: height 0.3s ease;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .navbar.open {
+        height: calc(100vh - 60px);
+    }
+
+    .navbar a {
+        margin: 0.5rem 0;
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+
+    .search-container {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search-container input[type="text"] {
+        width: auto;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    main {
+        padding-top: 80px;
+    }
+
+    .header-section {
+        padding: 1rem;
+    }
+
+    .header-section h1 {
+        font-size: 2rem;
+    }
+
+    .header-section p {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    section p {
+        font-size: 1rem;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0.5rem;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navbar a {
+        font-size: 0.8rem;
+        padding: 0.6rem;
+    }
+
+    .search-container input[type="text"] {
+        width: 50%;
+    }
+
+    .header-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-section p {
+        font-size: 0.9rem;
+    }
+
+    section h2 {
+        font-size: 1.2rem;
+    }
+
+    section p {
+        font-size: 0.9rem;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <a href="#">
+                <div class="logo"></div>
+            </a>
+        </div>
+        <nav class="navbar">
+            <a href="#home" class="activebar">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contacts</a>
+        </nav>
+        <div class="search-container">
+            <i class='bx bx-search search-icon'></i>
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <main>
+        <div class="header-section" id="home">
+            <h1>Welcome to My Potfolio</h1>
+            <p>Welcome to my world of innovation! I'm Muhammad Noman, a final year student at Iqra University, Karachi,
+                passionate about merging Natural Language Processing (NLP) with Urdu language advancement. Explore with
+                me as I delve into NLP projects like Langchain and UrduLughaat, while crafting impactful digital
+                experiences through web development. Together, let's make a difference at the intersection of technology
+                and Urdu culture! </p>
+
+        </div>
+
+        <section id="about" class="about">
+            <h2>About Us</h2>
+            <p>Hey there! I'm Muhammad Noman, a final year student at Iqra University in Karachi, Pakistan. My
+                passion lies at the intersection of Natural Language Processing (NLP) and promoting Urdu
+                language and culture through innovative technologies.
+
+                Currently, I'm deeply involved in several NLP projects, including Langchain, where I explore the
+                intricacies of language processing. I work with large language models such as BERT, GPT, and
+                LAAMA to delve into the nuances of human language. One of my key endeavors is to leverage these
+                advancements to propel Urdu language forward in Pakistan. To facilitate this, I've developed
+                UrduLughaat, a comprehensive library tailored for preprocessing Urdu text, paving the way for
+                further exploration and utilization of Urdu in NLP applications.
+
+                Beyond NLP, I'm also passionate about web development. I'm constantly honing my skills in this
+                domain, seeking to create impactful digital experiences and solutions.
+
+                Join me on this journey as I combine my expertise in NLP, dedication to Urdu language advocacy,
+                and enthusiasm for web development to make meaningful contributions in the tech world and
+                beyond.</p>
+        </section>
+
+        <section id="projects">
+            <div class="projects">
+                <h1> OUR PROJECTS</h1>
+                <div class="project-row">
+                    <div class="project-card">
+                        <img src="Assets/Chatboot.jpg" alt="Project 1">
+                        <h3>LSTM ATTENTION CHATBOT IN URDU</h3>
+                        <p class="cards">An auto-encoder Urdu chatbot using an attention mechanism with an LSTM model to
+                            answer
+                            university-related questions.</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="Assets/library.jpg" alt="Project 2">
+                        <h3>LIBRARY MANAGEMENT SYSTEM</h3>
+                        <p class="cards">An advanced automated library management system using Java and Java Swing.</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="Assets/autocodecorrection.jpg" alt="Project 3">
+                        <h3>AUTO PYTHON CODE CORRECTION</h3>
+                        <p class="cards">Automatic code correction for the Python language using an LLM BERT model.</p>
+                    </div>
+                </div>
+                <div class="project-row">
+                    <div class="project-card">
+                        <img src="Assets/BERT URDU CHATBOT.jpg" alt="Project 4">
+                        <h3>URDU CHATBOT USING BERT MODEL</h3>
+                        <p class="cards">An advanced conversational chatbot trained on a customized dataset that answers
+                            common questions.</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="Assets/Sentimental Analysis.jpg" alt="Project 5">
+                        <h3>SENTIMENT ANALYSIS OF 10 SENTIMENTS IN URDU</h3>
+                        <p class="cards">A customized dataset in Urdu trained on a BERT LLM model that can identify over
+                            10 sentiments.</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="Assets/Search Engine.jpg" alt="Project 6">
+                        <h3>SEARCH ENGINE OPTIMIZATION ON SPECIFIC DATASET</h3>
+                        <p class="cards">A customized Urdu corpus used to build a search engine using indexing and an
+                            advanced BM25 ranking
+                            algorithm.</p>
+                    </div>
+                </div>
+        </section>
+
+        <section class="table-container" id="services">
+            <h2>Our Services</h2>
+            <table>
+
+                <tr>
+                    <th>Service</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Database</td>
+                    <td>Design, develop, and manage efficient database systems for your business needs.</td>
+                </tr>
+                <tr>
+                    <td>Web Development</td>
+                    <td>Build responsive and user-friendly websites tailored to your brand and requirements.</td>
+                </tr>
+                <tr>
+                    <td>Chatbot Development</td>
+                    <td>Create intelligent chatbots to enhance customer experience and automate communication.</td>
+                </tr>
+                <tr>
+                    <td>AI Automation</td>
+                    <td>Streamline processes and boost productivity with AI-powered automation solutions.</td>
+                </tr>
+                <tr>
+                    <td>Machine Learning</td>
+                    <td>Leverage machine learning algorithms to extract valuable insights from data.</td>
+                </tr>
+                <tr>
+                    <td>Deep Learning</td>
+                    <td>Develop advanced deep learning models for complex tasks like image recognition and natural
+                        language
+                        processing.</td>
+                </tr>
+                <tr>
+                    <td>Natural Language Processing</td>
+                    <td>Unlock the power of human language with NLP techniques for text analysis and generation.</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form action="">
+                <div>
+                    <label class="labels_style" for="name">Your Name: </label>
+                    <input type="text" name="myName" id="name" class="input" placeholder="  Enter Your Name">
+                </div>
+                <div>
+                    <label class="labels_style" for="email">Your Email:</label>
+                    <input type="email" name="myEmail" id="email" class="input" placeholder="  Enter Your Email">
+                </div>
+                <div>
+                    <label class="labels_style" for="subject">Subject:</label>
+                    <input type="text" name="mySubject" id="subject" class="input" placeholder="  Enter Subject">
+                </div>
+                <div>
+                    <label class="labels_style" for="message">Your Message: </label><br>
+                    <textarea name="myMessage" cols="60" rows="5" id="message"></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="Submit" class="button">
+                    <input type="reset" value="Reset" class="button">
+                </div>
+            </form>
+        </section>
+
+        <footer>
+            <div>
+                <p class="footer_text" s>&copy; 2024 Muhammad Noman. All rights reserved.</p>
+            </div>
+        </footer>
+        <script>
+            const navbar = document.querySelector('.navbar');
+const hamburger = document.querySelector('.hamburger');
+const body = document.querySelector('body');
+
+
+hamburger.addEventListener('click', () => {
+    navbar.classList.toggle('open');
+    hamburger.classList.toggle('open');
+    body.classList.toggle('fixed');
+});
+
+body.addEventListener('click', (event) => {
+    if (!event.target.closest('.navbar') && !event.target.closest('.hamburger')) {
+        navbar.classList.remove('open');
+        hamburger.classList.remove('open');
+        body.classList.remove('fixed');
+    }
+});
+
+const navLinks = document.querySelectorAll('.navbar a');
+const sections = document.querySelectorAll('section');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = e.currentTarget.getAttribute('href');
+
+        navLinks.forEach(link => link.classList.remove('activebar'));
+
+        e.currentTarget.classList.add('activebar');
+
+
+        if (targetId === '#home') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            const targetElement = document.querySelector(targetId);
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+
+        if (window.innerWidth <= 768) {
+            hamburger.classList.remove('open');
+            navbar.classList.remove('open');
+        }
+    });
+});
+
+window.addEventListener('scroll', () => {
+    let currentSection = null;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - window.innerHeight / 2;
+        const sectionBottom = section.offsetTop + section.offsetHeight - window.innerHeight / 2;
+
+        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
+            currentSection = section.id;
+        }
+    });
+
+    navLinks.forEach(link => link.classList.remove('activebar'));
+
+    const activeLink = document.querySelector(`a[href="#${currentSection}"]`);
+    if (activeLink) {
+        activeLink.classList.add('activebar');
+    } else {
+        const homeLink = document.querySelector('a[href="#home"]');
+        homeLink.classList.add('activebar');
+    }
+});
+        </script>
+
+</body>
+
+</html>
